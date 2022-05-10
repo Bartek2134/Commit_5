@@ -17,18 +17,51 @@
   cw1.addEventListener("click", function () {
     fetch('https://jsonplaceholder.typicode.com/posts')
       .then(response => response.json())
-      .then(array => {
-        console.log(array)
-        answer.innerHTML = JSON.stringify(array);
+      .then(function(data){
+        appendData(data);
       })
+    function appendData(data){
+      answer.innerHTML=" ";
+      for(var i =0; i<=data.length;i++){
+        var div = document.createElement("div");
+        div.innerHTML= '<strong>UserID: ' + data [i].userID + '</strong> <strong>id:' + data [i].id + '</strong> <br> <strong>title: </strong>' + data[i].title + '<br> <strong>body:</strong>' + data[i].body + '<br><br>';
+        answer.appendChild(div);
+      }
+    }
   })
 
   cw2.addEventListener("click", function () {
-    //TODO implement it
+    answer.innerHTML="loading...";
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(response => response.json())
+      .then(function(data){
+        appendData(data);
+      })
+    function appendData(data){
+      answer.innerHTML=" ";
+      for(var i =0; i<=data.length;i++){
+        var div = document.createElement("div");
+        div.innerHTML= '<strong>UserID: ' + data [i].userID + '</strong> <strong>id:' + data [i].id + '</strong> <br> <strong>title: </strong>' + data[i].title + '<br> <strong>body:</strong>' + data[i].body + '<br><br>';
+        answer.appendChild(div);
+      }
+    }
   })
 
   cw3.addEventListener("click", function () {
-    //TODO implement it
+    answer.innerHTML="loading...";
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(response => response.json())
+      .then(function(data){
+        appendData(data);
+      })
+    function appendData(data){
+      answer.innerHTML=" ";
+      
+        var div = document.createElement("div");
+        div.innerHTML= '<strong>UserID: ' + data [0].userID + '</strong> <strong>id:' + data [0].id + '</strong> <br> <strong>title: </strong>' + data[0].title + '<br> <strong>body:</strong>' + data[0].body + '<br><br>';
+        answer.appendChild(div);
+      }
+    
   })
 
 })();
